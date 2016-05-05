@@ -1,0 +1,62 @@
+.board {
+  display: block;
+  margin: 0 auto;
+  text-align: center; }
+
+.welcome {
+  text-align: center; }
+
+.squareWrap {
+  display: inline-block; }
+
+.filledBlue {
+  background: blue; }
+
+.filledRed {
+  background: red; }
+
+.square {
+  width: 3em;
+  height: 3em;
+  display: block;
+  border: 3px solid grey;
+  border-radius: 5px;
+  margin: 1em 0.5em; }
+
+.one::before {
+  content: '1'; }
+
+.two::before {
+  content: '2'; }
+
+.three::before {
+  content: '3'; }
+
+.four::before {
+  content: '4'; }
+
+.five::before {
+  content: '5'; }
+
+.six::before {
+  content: '6'; }
+
+.seven::before {
+  content: '7'; }
+
+.eight::before {
+  content: '8'; }
+
+.nine::before {
+  content: '9'; }
+
+.playerAlert {
+  text-align: center; }
+
+#p1 {
+  color: red; }
+
+#p2 {
+  color: blue; }
+
+/*# sourceMappingURL=styles.css.map */
