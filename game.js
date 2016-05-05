@@ -6,7 +6,7 @@
 $('.square').click(function(){
   var $result = $(this).attr('class');
   //alert($result);
-  $(this).toggleClass('filled');
+  $(this).toggleClass('filledBlue');
 
   counter();
 
@@ -14,7 +14,9 @@ $('.square').click(function(){
 
 var counter = function(){
   if(
-    $('.one').hasClass('filled') && $('.two').hasClass('filled') && $('.three').hasClass('filled')
+    ($('.one').hasClass('filledBlue') && $('.two').hasClass('filledBlue') && $('.three').hasClass('filledBlue'))
+    ||
+    ($('.four').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.six').hasClass('filledBlue'))
   ){
     alert('A WINNER IS YOU!')
   };
