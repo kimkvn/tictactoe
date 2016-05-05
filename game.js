@@ -8,7 +8,14 @@ $('.square').click(function(){
   //alert($result);
   $(this).toggleClass('filled');
 
-  var x = $('.square.filled')
-	console.log(x)
+  counter();
 
 });
+
+var counter = function(){
+  if(
+    $('.one').hasClass('filled') && $('.two').hasClass('filled') && $('.three').hasClass('filled')
+  ){
+    alert('A WINNER IS YOU!')
+  };
+};
