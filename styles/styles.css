@@ -44,8 +44,8 @@
 .playerAlert {
   text-align: center; }
   .playerAlert #p1 {
-    color: red; }
-  .playerAlert #p2 {
     color: blue; }
+  .playerAlert #p2 {
+    color: red; }
 
 /*# sourceMappingURL=styles.css.map */
