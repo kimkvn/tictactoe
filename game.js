@@ -26,6 +26,44 @@ var counter = function(){
     ($('.one').hasClass('filledBlue') && $('.two').hasClass('filledBlue') && $('.three').hasClass('filledBlue'))
     ||
     ($('.four').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.six').hasClass('filledBlue'))
+    ||
+    ($('.seven').hasClass('filledBlue') && $('.eight').hasClass('filledBlue') && $('.nine').hasClass('filledBlue'))
+
+    ||
+
+    ($('.one').hasClass('filledBlue') && $('.four').hasClass('filledBlue') && $('.seven').hasClass('filledBlue'))
+    ||
+    ($('.two').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.eight').hasClass('filledBlue'))
+    ||
+    ($('.three').hasClass('filledBlue') && $('.six').hasClass('filledBlue') && $('.nine').hasClass('filledBlue'))
+
+    ||
+
+    ($('.one').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.nine').hasClass('filledBlue'))
+    ||
+    ($('.three').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.three').hasClass('seven'))
+    
+    // $('.filledBlue').is('.three' && '.two' )
+    // ||
+    // $('.filledBlue').is('.four' && '.five' && '.six')
+    // ||
+    // $('.filledBlue').is('.seven' && '.eight' && '.nine')
+
+    // ||
+    //
+    // $('.filledBlue').is('.one' && '.four' && '.seven')
+    // ||
+    // $('.filledBlue').is('.two' && '.five' && '.eight')
+    // ||
+    // $('.filledBlue').is('.three' && '.six' && '.nine')
+    //
+    // ||
+    //
+    // $('.filledBlue').is('.one' && '.five' && '.nine')
+    // ||
+    // $('.filledBlue').is('.three' && '.five' && '.seven')
+
+
   ){
     alert('A WINNER IS YOU!');
     reset();
