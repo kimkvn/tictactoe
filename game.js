@@ -3,8 +3,8 @@
 // 1-4-7, 2-5-8, 3-6-9
 // 1-5-9, 3-5-7
 
-var blues = [];
-var reds = [];
+var blues = []; //stores blue players moves
+var reds = []; //stores red players moves
 
 var blueMove = function(){
 
@@ -22,14 +22,14 @@ var blueMove = function(){
 
     console.log(blues);
 
+    // check if blue wins:
+    //    yes --> reset (built into counter function)
     blueCounter();
 
   });
 
+    //    no --> prompt red player to move
 
-  // check if blue wins:
-  //    yes --> reset
-  //    no --> prompt red player to move
 };
 
 var redMove = function(){
@@ -47,14 +47,14 @@ var redMove = function(){
     $(this).toggleClass('filledRed');
 
     console.log(reds);
-
+    // check if red wins:
+    //    yes --> reset (built into counter function)
     redCounter();
 
   });
 
 
-  // check if red wins:
-  //    yes --> reset
+
   //    no --> prompt blue player to move
 
 };
