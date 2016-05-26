@@ -59,18 +59,6 @@ var redMove = function(){
 
 };
 
-// $('.square').click(function(){
-//   var $result = $(this).attr('class');
-//   //alert($result);
-//   blues.push($(this).attr('id'));
-//   $(this).click(false);
-//   $(this).toggleClass('filledBlue');
-//
-//   console.log(blues);
-//
-//   counter();
-//
-// });
 
 
 var blueCounter = function(){
@@ -95,37 +83,10 @@ var blueCounter = function(){
     ||
     ($('.three').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.three').hasClass('filledBlue'))
 
-    // $('.filledBlue').is('.three' && '.two' )
-    // ||
-    // $('.filledBlue').is('.four' && '.five' && '.six')
-    // ||
-    // $('.filledBlue').is('.seven' && '.eight' && '.nine')
-
-    // ||
-    //
-    // $('.filledBlue').is('.one' && '.four' && '.seven')
-    // ||
-    // $('.filledBlue').is('.two' && '.five' && '.eight')
-    // ||
-    // $('.filledBlue').is('.three' && '.six' && '.nine')
-    //
-    // ||
-    //
-    // $('.filledBlue').is('.one' && '.five' && '.nine')
-    // ||
-    // $('.filledBlue').is('.three' && '.five' && '.seven')
-
-
   ){
     alert('A WINNER IS YOU!');
     reset();
   }
-  // var arr = $('.filledBlue');
-  // for(i = 0; i < arr.length; i++)
-  // {
-  //   if(arr[i] )
-  //   alert('A WINNER IS YOU!')
-  // };
 };
 
 
@@ -150,27 +111,6 @@ var redCounter = function(){
     ($('.one').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
     ||
     ($('.three').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.three').hasClass('filledRed'))
-
-    // $('.filledRed').is('.three' && '.two' )
-    // ||
-    // $('.filledRed').is('.four' && '.five' && '.six')
-    // ||
-    // $('.filledRed').is('.seven' && '.eight' && '.nine')
-
-    // ||
-    //
-    // $('.filledRed').is('.one' && '.four' && '.seven')
-    // ||
-    // $('.filledRed').is('.two' && '.five' && '.eight')
-    // ||
-    // $('.filledRed').is('.three' && '.six' && '.nine')
-    //
-    // ||
-    //
-    // $('.filledRed').is('.one' && '.five' && '.nine')
-    // ||
-    // $('.filledRed').is('.three' && '.five' && '.seven')
-
 
   ){
     alert('A WINNER IS YOU!');
