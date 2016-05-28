@@ -31,6 +31,8 @@ var blueMove = function(){
     //    no --> prompt red player to move
 
 };
+//-------------end blueMove();
+
 
 var redMove = function(){
 
@@ -58,7 +60,7 @@ var redMove = function(){
   //    no --> prompt blue player to move
 
 };
-
+//--------------end redMove();
 
 
 var blueCounter = function(){
@@ -84,11 +86,10 @@ var blueCounter = function(){
     ($('.three').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.three').hasClass('filledBlue'))
 
   ){
-    alert('A WINNER IS YOU!');
-    reset();
+    return(true);
   }
 };
-
+//----------------end blueCounter();
 
 var redCounter = function(){
   if(
@@ -113,10 +114,24 @@ var redCounter = function(){
     ($('.three').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.three').hasClass('filledRed'))
 
   ){
-    alert('A WINNER IS YOU!');
+      return(true);
+  }
+};
+//-----------------end redCounter();
+
+var boardCheck = function(){
+  if(
+    blueCounter()
+  ){
+    alert('A WINNER IS BLUE PLAYER!');
     reset();
   }
-
+  else if (
+    redCounter()
+  ){
+      alert('A WINNER IS RED PLAYER!')
+      reset();
+  }
 };
 
 
