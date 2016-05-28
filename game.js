@@ -22,6 +22,9 @@ var blueMove = function(){
 
     console.log(blues);
 
+    //disable the square from being clicked again unless new game is started
+    $('<div class="clickBlock"></div>').insertAfter(this);
+
     // check if blue wins:
     //    yes --> reset (built into counter function)
     blueCounter();
