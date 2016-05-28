@@ -8,8 +8,16 @@
 // GAME START
 var gameStart = function(){
 
-  //blue player to move
-  blueMove();
+  //blue player clicks
+  // if blue has winning conditions:
+  //    new game
+  // else
+  //    red player clicks
+  //if red has winning conditions:
+  //  new game
+  // else
+  //blue player clicks
+  //...
 
 };
 
@@ -39,11 +47,10 @@ var blueMove = function(){
 
     // check if blue wins:
     //    yes --> reset (built into counter function)
-    boardCheck();
-
   });
 
     //    no --> prompt red player to move
+    return;
 
 };
 //-------------end blueMove();
@@ -78,6 +85,29 @@ var redMove = function(){
 
 };
 //--------------end redMove();
+
+
+var boardCheck = function(){
+  if(
+    blueCounter()
+  ){
+    alert('A WINNER IS BLUE PLAYER!');
+    reset();
+    return;
+  }
+  else if (
+    redCounter()
+  ){
+      alert('A WINNER IS RED PLAYER!')
+      reset();
+      return;
+  }
+  else{
+    return (true);
+  }
+
+};
+//-------------end boardCheck();
 
 
 var blueCounter = function(){
@@ -136,21 +166,6 @@ var redCounter = function(){
 };
 //-----------------end redCounter();
 
-var boardCheck = function(){
-  if(
-    blueCounter()
-  ){
-    alert('A WINNER IS BLUE PLAYER!');
-    reset();
-  }
-  else if (
-    redCounter()
-  ){
-      alert('A WINNER IS RED PLAYER!')
-      reset();
-  }
-};
-//-------------end boardCheck();
 
 var reset = function(){
   $('.square').removeClass('filledBlue');

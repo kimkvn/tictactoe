@@ -57,9 +57,11 @@
 .playerAlert {
   text-align: center; }
   .playerAlert #p1 {
-    color: blue; }
+    color: blue;
+    display: none; }
   .playerAlert #p2 {
-    color: red; }
+    color: red;
+    display: none; }
   .playerAlert .reset {
     display: none; }
 
