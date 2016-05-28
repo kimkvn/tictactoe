@@ -133,7 +133,7 @@ var boardCheck = function(){
       reset();
   }
 };
-
+//-------------end boardCheck();
 
 var reset = function(){
   $('.square').removeClass('filledBlue');
