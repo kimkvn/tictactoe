@@ -27,7 +27,7 @@ var blueMove = function(){
 
     // check if blue wins:
     //    yes --> reset (built into counter function)
-    blueCounter();
+    //boardCheck();
 
   });
 
@@ -52,9 +52,13 @@ var redMove = function(){
     $(this).toggleClass('filledRed');
 
     console.log(reds);
+    //disable the square from being clicked again unless new game is started
+    $('<div class="clickBlock"></div>').insertAfter(this);
+
+
     // check if red wins:
     //    yes --> reset (built into counter function)
-    redCounter();
+    //boardCheck();
 
   });
 
@@ -141,6 +145,7 @@ var boardCheck = function(){
 var reset = function(){
   $('.square').removeClass('filledBlue');
   $('.square').removeClass('filledRed');
+  $('.clickBlock').remove();
   blues = [];
   reds=[];
 };
