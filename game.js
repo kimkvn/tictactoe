@@ -8,16 +8,7 @@
 // GAME START
 var gameStart = function(){
 
-  //blue player clicks
-  // if blue has winning conditions:
-  //    new game
-  // else
-  //    red player clicks
-  //if red has winning conditions:
-  //  new game
-  // else
-  //blue player clicks
-  //...
+
 
 };
 
@@ -44,14 +35,17 @@ var blueMove = function(){
 
     //disable the square from being clicked again unless new game is started
     $('<div class="clickBlock"></div>').insertAfter(this);
-
+    if(boardCheck()){
+      redMove()
+      $('#p1').hide()
+    }
+    return;
+  });
     // check if blue wins:
     //    yes --> reset (built into counter function)
-  });
-
     //    no --> prompt red player to move
+    //           AND end blue players turn
     return;
-
 };
 //-------------end blueMove();
 
@@ -61,17 +55,20 @@ var redMove = function(){
   //ALERT red player to move!
   $('#p2').show();
 
-  // register blue players input
+  // register red players input
   $('.square').click(function(){
     var $result = $(this).attr('class');
-    //alert($result);
     reds.push($(this).attr('id'));
     $(this).toggleClass('filledRed');
 
     console.log(reds);
     //disable the square from being clicked again unless new game is started
     $('<div class="clickBlock"></div>').insertAfter(this);
-
+    if(boardCheck()){
+      blueMove();
+      $('#p2').hide();
+      return;
+    }
 
     // check if red wins:
     //    yes --> reset (built into counter function)
@@ -93,14 +90,12 @@ var boardCheck = function(){
   ){
     alert('A WINNER IS BLUE PLAYER!');
     reset();
-    return;
   }
   else if (
     redCounter()
   ){
       alert('A WINNER IS RED PLAYER!')
       reset();
-      return;
   }
   else{
     return (true);
@@ -175,11 +170,6 @@ var reset = function(){
   reds=[];
   $('#p1, #p2').hide();
   $('.reset').show();
-  newGame();
-};
-
-//start newGame action
-var newGame = function(){
   $('button.newGameStart').click(function(){
     console.log('1v1 ME NOOB')
   });
