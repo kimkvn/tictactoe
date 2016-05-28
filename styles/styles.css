@@ -60,5 +60,7 @@
     color: blue; }
   .playerAlert #p2 {
     color: red; }
+  .playerAlert .reset {
+    display: none; }
 
 /*# sourceMappingURL=styles.css.map */

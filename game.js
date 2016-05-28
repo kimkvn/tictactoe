@@ -3,6 +3,20 @@
 // 1-4-7, 2-5-8, 3-6-9
 // 1-5-9, 3-5-7
 
+
+
+// GAME START
+var gameStart = function(){
+
+  //blue player to move
+  blueMove();
+
+};
+
+
+
+
+
 var blues = []; //stores blue players moves
 var reds = []; //stores red players moves
 
@@ -10,14 +24,12 @@ var blueMove = function(){
 
   //ALERT Blue player to move!
   $('#p1').show();
-  $('#p2').hide();
 
   // register blue players input
   $('.square').click(function(){
     var $result = $(this).attr('class');
     //alert($result);
     blues.push($(this).attr('id'));
-    $(this).click(false);
     $(this).toggleClass('filledBlue');
 
     console.log(blues);
@@ -27,7 +39,7 @@ var blueMove = function(){
 
     // check if blue wins:
     //    yes --> reset (built into counter function)
-    //boardCheck();
+    boardCheck();
 
   });
 
@@ -41,14 +53,12 @@ var redMove = function(){
 
   //ALERT red player to move!
   $('#p2').show();
-  $('#p1').hide();
 
   // register blue players input
   $('.square').click(function(){
     var $result = $(this).attr('class');
     //alert($result);
     reds.push($(this).attr('id'));
-    $(this).click(false);
     $(this).toggleClass('filledRed');
 
     console.log(reds);
@@ -90,7 +100,7 @@ var blueCounter = function(){
 
     ($('.one').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.nine').hasClass('filledBlue'))
     ||
-    ($('.three').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.three').hasClass('filledBlue'))
+    ($('.three').hasClass('filledBlue') && $('.five').hasClass('filledBlue') && $('.seven').hasClass('filledBlue'))
 
   ){
     return(true);
@@ -118,7 +128,7 @@ var redCounter = function(){
 
     ($('.one').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
     ||
-    ($('.three').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.three').hasClass('filledRed'))
+    ($('.three').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
 
   ){
       return(true);
@@ -148,4 +158,14 @@ var reset = function(){
   $('.clickBlock').remove();
   blues = [];
   reds=[];
+  $('#p1, #p2').hide();
+  $('.reset').show();
+  newGame();
+};
+
+//start newGame action
+var newGame = function(){
+  $('button.newGameStart').click(function(){
+    console.log('1v1 ME NOOB')
+  });
 };
