@@ -55,10 +55,10 @@
 
 .playerAlert {
   text-align: center; }
-  .playerAlert #p1 {
+  .playerAlert #p1, .playerAlert .blueWin {
     color: blue;
     display: none; }
-  .playerAlert #p2 {
+  .playerAlert #p2, .playerAlert .redWin {
     color: red;
     display: none; }
   .playerAlert .reset {

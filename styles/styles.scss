@@ -70,11 +70,11 @@
 
 .playerAlert{
   text-align: center;
-  #p1{
+  #p1, .blueWin{
     color: blue;
     display: none;
   }
-  #p2{
+  #p2, .redWin{
     color: red;
     display: none;
   }

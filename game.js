@@ -12,6 +12,19 @@ var gameStart = function(){
 
 };
 
+var player_one = 1;
+
+function game(){
+    if ( player_one == 1 ){
+        //document.getElementById(square).innerHTML = "X";
+        blueMove()
+        player_one = 0;
+    } else {
+        //document.getElementById(square).innerHTML = "O";
+        redMove()
+        player_one = 1;
+    }
+}
 
 
 
@@ -26,9 +39,8 @@ var blueMove = function(){
   $('#p2').hide();
   // register blue players input
   $('.square').click(function(){
-
-    blues.push($(this).attr('id'));
     $(this).toggleClass('filledBlue');
+    blues.push($(this).attr('id'));
 
     console.log(blues);
 
@@ -38,8 +50,11 @@ var blueMove = function(){
     // check if blue wins:
     //    yes --> reset (built into counter function)
     //    no --> red player to move
-    if(boardCheck()){
-      redMove()
+
+    if(blueCheck()){
+      //redMove()
+      console.log("no winner yet")
+      return;
     }
     return;
   });
@@ -54,9 +69,9 @@ var redMove = function(){
   $('#p1').hide();
   // register red players input
   $('.square').click(function(){
-
-    reds.push($(this).attr('id'));
     $(this).toggleClass('filledRed');
+    reds.push($(this).attr('id'));
+
 
     console.log(reds);
     //disable the square from being clicked again unless new game is started
@@ -65,8 +80,9 @@ var redMove = function(){
     // check if red wins:
     //    yes --> reset (built into counter function)
     //    no --> blue player to move
-    if(boardCheck()){
-      blueMove();
+    if(redCheck()){
+      console.log("no winner yet")
+      return;
     }
     return;
   });
@@ -74,26 +90,49 @@ var redMove = function(){
 };
 //--------------end redMove();
 
-
-var boardCheck = function(){
+var blueCheck = function(){
   if(
     blueCounter()
   ){
-    alert('A WINNER IS BLUE PLAYER!');
+    $('.blueWin').show();
     reset();
   }
-  else if (
+  else{
+    return true;
+  }
+};
+
+var redCheck = function(){
+  if (
     redCounter()
   ){
-      alert('A WINNER IS RED PLAYER!')
+      $('.redWin').show();
       reset();
   }
   else{
-    console.log('No Winners yet')
-    return (true);
+    return true;
   }
-
 };
+
+// var boardCheck = function(){
+//   if(
+//     blueCounter()
+//   ){
+//     alert('A WINNER IS BLUE PLAYER!');
+//     reset();
+//   }
+//   else if (
+//     redCounter()
+//   ){
+//       alert('A WINNER IS RED PLAYER!')
+//       reset();
+//   }
+//   else{
+//     console.log('No Winners yet')
+//     return (true);
+//   }
+//
+// };
 //-------------end boardCheck();
 
 
@@ -126,28 +165,55 @@ var blueCounter = function(){
 //----------------end blueCounter();
 
 var redCounter = function(){
-  if(
-    ($('.one').hasClass('filledRed') && $('.two').hasClass('filledRed') && $('.three').hasClass('filledRed'))
-    ||
-    ($('.four').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.six').hasClass('filledRed'))
-    ||
-    ($('.seven').hasClass('filledRed') && $('.eight').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
+  for(var i = 0; i < reds.length; i++){
+     if(
+       (reds[i] == "one" || "two" || "three")
+       ||
+       (reds[i] == "four" || "five" || "six")
+       ||
+       (reds[i] == "seven" || "eight" || "nine")
 
-    ||
+       ||
 
-    ($('.one').hasClass('filledRed') && $('.four').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
-    ||
-    ($('.two').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.eight').hasClass('filledRed'))
-    ||
-    ($('.three').hasClass('filledRed') && $('.six').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
+       (reds[i] == "one" || "four" || "seven")
+       ||
+       (reds[i] == "two" || "five" || "eight")
+       ||
+       (reds[i] == "three" || "six" || "nine")
 
-    ||
+       ||
 
-    ($('.one').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
-    ||
-    ($('.three').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
+       (reds[i] == "one" || "five" || "nine")
+       ||
+       (reds[i] == "three" || "five" || "seven")
+     ){
+         return true;
+     }
+  }
 
-  ){
+  // if(
+  //   ($('.one').hasClass('filledRed') && $('.two').hasClass('filledRed') && $('.three').hasClass('filledRed'))
+  //   ||
+  //   ($('.four').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.six').hasClass('filledRed'))
+  //   ||
+  //   ($('.seven').hasClass('filledRed') && $('.eight').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
+  //
+  //   ||
+  //
+  //   ($('.one').hasClass('filledRed') && $('.four').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
+  //   ||
+  //   ($('.two').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.eight').hasClass('filledRed'))
+  //   ||
+  //   ($('.three').hasClass('filledRed') && $('.six').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
+  //
+  //   ||
+  //
+  //   ($('.one').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
+  //   ||
+  //   ($('.three').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
+  //
+  // )
+  {
       return(true);
   }
 };
@@ -155,14 +221,14 @@ var redCounter = function(){
 
 
 var reset = function(){
-  $('.square').removeClass('filledBlue');
-  $('.square').removeClass('filledRed');
-  $('.clickBlock').remove();
-  blues = [];
-  reds=[];
   $('#p1, #p2').hide();
   $('.reset').show();
   $('button.newGameStart').click(function(){
+    $('.square').removeClass('filledBlue');
+    $('.square').removeClass('filledRed');
+    $('.clickBlock').remove();
+    blues = [];
+    reds=[];
     console.log('1v1 ME NOOB')
   });
 };
