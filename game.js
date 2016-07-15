@@ -17,24 +17,15 @@ var p1 = [];
 var p2 = [];
 var square = $('.square')
 
-var game = function(){
+var playerSwitch = function(){
 
-	blueMove();
-
-	switch (player){
-		case 1 : {
-			console.log('blue player moved');
-			redMove();
-			break;
-		}
-		case 2 : {
-			console.log ('red player moved');
-			blueMove()
-			break;
-		}
-		default:
-			console.log("errorz");
-
+	if (player === 1){
+		player = 2;
+		console.log(player)
+	}
+	else if (player = 2){
+		player = 1
+		console.log(player)
 	}
 
 };
@@ -63,12 +54,7 @@ var blueMove = function(){
     //    yes --> reset (built into counter function)
     //    no --> red player to move
 
-    if(blueCheck()){
-      //redMove()
-      console.log("no winner yet")
-      return;
-    }
-    return;
+		blueCheck();
   });
 };
 //-------------end blueMove();
@@ -92,13 +78,8 @@ var redMove = function(){
     // check if red wins:
     //    yes --> reset (built into counter function)
     //    no --> blue player to move
-    if(redCheck()){
-      console.log("no winner yet")
-      return;
-    }
-    return;
-  });
-
+		redCheck();
+	});
 };
 //--------------end redMove();
 
@@ -110,7 +91,7 @@ var blueCheck = function(){
     reset();
   }
   else{
-    return true;
+    playerSwitch();
   }
 };
 
@@ -122,7 +103,7 @@ var redCheck = function(){
       reset();
   }
   else{
-    return true;
+    playerSwitch();
   }
 };
 
