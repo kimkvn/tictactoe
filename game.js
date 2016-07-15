@@ -21,11 +21,11 @@ var playerSwitch = function(){
 
 	if (player === 1){
 		player = 2;
-		console.log(player)
+		redMove();
 	}
 	else if (player = 2){
 		player = 1
-		console.log(player)
+		blueMove();
 	}
 
 };
