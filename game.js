@@ -19,6 +19,24 @@ var square = $('.square')
 
 var game = function(){
 
+	blueMove();
+
+	switch (player){
+		case 1 : {
+			console.log('blue player moved');
+			redMove();
+			break;
+		}
+		case 2 : {
+			console.log ('red player moved');
+			blueMove()
+			break;
+		}
+		default:
+			console.log("errorz");
+
+	}
+
 };
 
 
