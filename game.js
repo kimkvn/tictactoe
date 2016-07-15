@@ -17,22 +17,9 @@ var p1 = [];
 var p2 = [];
 var square = $('.square')
 
-var game = function(square){
-	$('.square').click(function(){
-  	if (player = 1){
-  		//p1.push($(this).attr('id'))
-      player = 0
-      console.log('p1 moved')
-  	} else{
-    	//p2.push($(this).attr('id'))
-      console.log('p2 moved')
-      player = 1;
-    }
-
-  });
+var game = function(){
 
 };
-game();
 
 
 
