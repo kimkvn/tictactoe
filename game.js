@@ -17,6 +17,11 @@ var p1 = [];
 var p2 = [];
 var square = $('.square')
 
+
+var blues = []; //stores blue players moves
+var reds = []; //stores red players moves
+
+
 var playerSwitch = function(){
 
 	if (player === 1){
@@ -31,16 +36,32 @@ var playerSwitch = function(){
 
 };
 
+
+
 square.click(function(){
 	if (player === 1){
-		$('#p1').show();
-		$('#p2').hide();
+		// $('#p1').show();
+		// $('#p2').hide();
+		$(this).toggleClass('filledBlue');
+		blues.push($(this).attr('id'));
+    $('<div class="clickBlock"></div>').insertAfter(this);
+		//check if blue wins
+
+
+		console.log(blues)
 		player = 2;
 
 	}
 	else if (player = 2){
-		$('#p2').show();
-		$('#p1').hide();
+		// $('#p2').show();
+		// $('#p1').hide();
+		$(this).toggleClass('filledRed');
+    reds.push($(this).attr('id'));
+    $('<div class="clickBlock"></div>').insertAfter(this);
+		//check if red wins
+
+
+		console.log(reds)
 		player = 1
 
 	}
@@ -72,8 +93,7 @@ square.click(function(){
 
 
 
-var blues = []; //stores blue players moves
-var reds = []; //stores red players moves
+
 
 var blueMove = function(){
 
@@ -130,9 +150,7 @@ var blueCheck = function(){
     $('.blueWin').show();
     reset();
   }
-  else{
-    playerSwitch();
-  }
+
 };
 
 var redCheck = function(){
@@ -141,9 +159,6 @@ var redCheck = function(){
   ){
       $('.redWin').show();
       reset();
-  }
-  else{
-    playerSwitch();
   }
 };
 
@@ -198,54 +213,54 @@ var blueCounter = function(){
 //----------------end blueCounter();
 
 var redCounter = function(){
-  for(var i = 0; i < reds.length; i++){
-     if(
-       (reds[i] == "one" || "two" || "three")
-       ||
-       (reds[i] == "four" || "five" || "six")
-       ||
-       (reds[i] == "seven" || "eight" || "nine")
+  // for(var i = 0; i < reds.length; i++){
+  //    if(
+  //      (reds[i] == "one" || "two" || "three")
+  //      ||
+  //      (reds[i] == "four" || "five" || "six")
+  //      ||
+  //      (reds[i] == "seven" || "eight" || "nine")
+	//
+  //      ||
+	//
+  //      (reds[i] == "one" || "four" || "seven")
+  //      ||
+  //      (reds[i] == "two" || "five" || "eight")
+  //      ||
+  //      (reds[i] == "three" || "six" || "nine")
+	//
+  //      ||
+	//
+  //      (reds[i] == "one" || "five" || "nine")
+  //      ||
+  //      (reds[i] == "three" || "five" || "seven")
+  //    ){
+  //        return true;
+  //    }
+  // }
 
-       ||
+  if(
+    ($('.one').hasClass('filledRed') && $('.two').hasClass('filledRed') && $('.three').hasClass('filledRed'))
+    ||
+    ($('.four').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.six').hasClass('filledRed'))
+    ||
+    ($('.seven').hasClass('filledRed') && $('.eight').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
 
-       (reds[i] == "one" || "four" || "seven")
-       ||
-       (reds[i] == "two" || "five" || "eight")
-       ||
-       (reds[i] == "three" || "six" || "nine")
+    ||
 
-       ||
+    ($('.one').hasClass('filledRed') && $('.four').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
+    ||
+    ($('.two').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.eight').hasClass('filledRed'))
+    ||
+    ($('.three').hasClass('filledRed') && $('.six').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
 
-       (reds[i] == "one" || "five" || "nine")
-       ||
-       (reds[i] == "three" || "five" || "seven")
-     ){
-         return true;
-     }
-  }
+    ||
 
-  // if(
-  //   ($('.one').hasClass('filledRed') && $('.two').hasClass('filledRed') && $('.three').hasClass('filledRed'))
-  //   ||
-  //   ($('.four').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.six').hasClass('filledRed'))
-  //   ||
-  //   ($('.seven').hasClass('filledRed') && $('.eight').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
-  //
-  //   ||
-  //
-  //   ($('.one').hasClass('filledRed') && $('.four').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
-  //   ||
-  //   ($('.two').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.eight').hasClass('filledRed'))
-  //   ||
-  //   ($('.three').hasClass('filledRed') && $('.six').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
-  //
-  //   ||
-  //
-  //   ($('.one').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
-  //   ||
-  //   ($('.three').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
-  //
-  // )
+    ($('.one').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.nine').hasClass('filledRed'))
+    ||
+    ($('.three').hasClass('filledRed') && $('.five').hasClass('filledRed') && $('.seven').hasClass('filledRed'))
+
+  )
   {
       return(true);
   }
