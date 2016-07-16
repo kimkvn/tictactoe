@@ -46,7 +46,7 @@ square.click(function(){
 		blues.push($(this).attr('id'));
     $('<div class="clickBlock"></div>').insertAfter(this);
 		//check if blue wins
-
+		 blueCheck();
 
 		console.log(blues)
 		player = 2;
@@ -59,7 +59,7 @@ square.click(function(){
     reds.push($(this).attr('id'));
     $('<div class="clickBlock"></div>').insertAfter(this);
 		//check if red wins
-
+		redCheck();
 
 		console.log(reds)
 		player = 1
