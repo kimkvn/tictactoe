@@ -20,6 +20,7 @@ var square = $('.square')
 var playerSwitch = function(){
 
 	if (player === 1){
+
 		player = 2;
 		redMove();
 	}
@@ -29,6 +30,45 @@ var playerSwitch = function(){
 	}
 
 };
+
+square.click(function(){
+	if (player === 1){
+		$('#p1').show();
+		$('#p2').hide();
+		player = 2;
+
+	}
+	else if (player = 2){
+		$('#p2').show();
+		$('#p1').hide();
+		player = 1
+
+	}
+});
+
+
+
+
+
+
+
+// THE FACT THAT THE ON-CLICK HANDLER IS **INSIDE** EACH
+// PLAYER MOVE FUNCTION IS PROBABLY WHY YOU KEEP GETTING REPEAT
+// LOGIC FIRING AGAIN AND AGAIN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
