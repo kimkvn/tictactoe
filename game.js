@@ -95,53 +95,55 @@ square.click(function(){
 
 
 
-var blueMove = function(){
-
-  //ALERT Blue player to move!
-  $('#p1').show();
-  $('#p2').hide();
-  // register blue players input
-  $('.square').click(function(){
-    $(this).toggleClass('filledBlue');
-    blues.push($(this).attr('id'));
-
-    console.log(blues);
-
-    //disable the square from being clicked again unless new game is started
-    $('<div class="clickBlock"></div>').insertAfter(this);
-
-    // check if blue wins:
-    //    yes --> reset (built into counter function)
-    //    no --> red player to move
-
-		blueCheck();
-  });
-};
-//-------------end blueMove();
-
-
-var redMove = function(){
-
-  //ALERT red player to move!
-  $('#p2').show();
-  $('#p1').hide();
-  // register red players input
-  $('.square').click(function(){
-    $(this).toggleClass('filledRed');
-    reds.push($(this).attr('id'));
+// var blueMove = function(){
+//
+//   //ALERT Blue player to move!
+//   $('#p1').show();
+//   $('#p2').hide();
+//   // register blue players input
+//   $('.square').click(function(){
+//     $(this).toggleClass('filledBlue');
+//     blues.push($(this).attr('id'));
+//
+//     console.log(blues);
+//
+//     //disable the square from being clicked again unless new game is started
+//     $('<div class="clickBlock"></div>').insertAfter(this);
+//
+//     // check if blue wins:
+//     //    yes --> reset (built into counter function)
+//     //    no --> red player to move
+//
+// 		blueCheck();
+//   });
+// };
+// //-------------end blueMove();
 
 
-    console.log(reds);
-    //disable the square from being clicked again unless new game is started
-    $('<div class="clickBlock"></div>').insertAfter(this);
+// var redMove = function(){
+//
+//   //ALERT red player to move!
+//   $('#p2').show();
+//   $('#p1').hide();
+//   // register red players input
+//   $('.square').click(function(){
+//     $(this).toggleClass('filledRed');
+//     reds.push($(this).attr('id'));
+//
+//
+//     console.log(reds);
+//     //disable the square from being clicked again unless new game is started
+//     $('<div class="clickBlock"></div>').insertAfter(this);
+//
+//     // check if red wins:
+//     //    yes --> reset (built into counter function)
+//     //    no --> blue player to move
+// 		redCheck();
+// 	});
+// };
+// //--------------end redMove();
 
-    // check if red wins:
-    //    yes --> reset (built into counter function)
-    //    no --> blue player to move
-		redCheck();
-	});
-};
-//--------------end redMove();
+
 
 var blueCheck = function(){
   if(
@@ -162,25 +164,6 @@ var redCheck = function(){
   }
 };
 
-// var boardCheck = function(){
-//   if(
-//     blueCounter()
-//   ){
-//     alert('A WINNER IS BLUE PLAYER!');
-//     reset();
-//   }
-//   else if (
-//     redCounter()
-//   ){
-//       alert('A WINNER IS RED PLAYER!')
-//       reset();
-//   }
-//   else{
-//     console.log('No Winners yet')
-//     return (true);
-//   }
-//
-// };
 //-------------end boardCheck();
 
 
@@ -271,12 +254,13 @@ var redCounter = function(){
 var reset = function(){
   $('#p1, #p2').hide();
   $('.reset').show();
+
   $('button.newGameStart').click(function(){
     $('.square').removeClass('filledBlue');
     $('.square').removeClass('filledRed');
     $('.clickBlock').remove();
     blues = [];
     reds=[];
-    console.log('1v1 ME NOOB')
+		$('.reset, .redWin, .blueWin').hide();
   });
 };
