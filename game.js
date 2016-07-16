@@ -5,16 +5,10 @@
 
 
 
-// GAME START
-var gameStart = function(){
 
 
+var player ;
 
-};
-
-var player = 1;
-var p1 = [];
-var p2 = [];
 var square = $('.square')
 
 
@@ -22,74 +16,49 @@ var blues = []; //stores blue players moves
 var reds = []; //stores red players moves
 
 
-var playerSwitch = function(){
+// GAME START
 
-	if (player === 1){
+$('.gameStart').click(function(){
+	gameStart();
+});
+var gameStart = function(){
+		$('#p1').show();
+		player = 1;
+		$('.gameStart').hide();
 
-		player = 2;
-		redMove();
-	}
-	else if (player = 2){
-		player = 1
-		blueMove();
-	}
+
+		square.click(function(){
+			if (player === 1){
+				$('#p2').show();
+				$('#p1').hide();
+				$(this).toggleClass('filledBlue');
+				blues.push($(this).attr('id'));
+		    $('<div class="clickBlock"></div>').insertAfter(this);
+				//check if blue wins
+				 blueCheck();
+
+				console.log(blues)
+				player = 2;
+
+			}
+			else if (player = 2){
+
+				$('#p1').show();
+				$('#p2').hide();
+				$(this).toggleClass('filledRed');
+		    reds.push($(this).attr('id'));
+		    $('<div class="clickBlock"></div>').insertAfter(this);
+				//check if red wins
+				redCheck();
+
+				console.log(reds)
+				player = 1
+
+			}
+		});
+
 
 };
-
-
-
-square.click(function(){
-	if (player === 1){
-		// $('#p1').show();
-		// $('#p2').hide();
-		$(this).toggleClass('filledBlue');
-		blues.push($(this).attr('id'));
-    $('<div class="clickBlock"></div>').insertAfter(this);
-		//check if blue wins
-		 blueCheck();
-
-		console.log(blues)
-		player = 2;
-
-	}
-	else if (player = 2){
-		// $('#p2').show();
-		// $('#p1').hide();
-		$(this).toggleClass('filledRed');
-    reds.push($(this).attr('id'));
-    $('<div class="clickBlock"></div>').insertAfter(this);
-		//check if red wins
-		redCheck();
-
-		console.log(reds)
-		player = 1
-
-	}
-});
-
-
-
-
-
-
-
-// THE FACT THAT THE ON-CLICK HANDLER IS **INSIDE** EACH
-// PLAYER MOVE FUNCTION IS PROBABLY WHY YOU KEEP GETTING REPEAT
-// LOGIC FIRING AGAIN AND AGAIN
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -254,7 +223,7 @@ var redCounter = function(){
 var reset = function(){
   $('#p1, #p2').hide();
   $('.reset').show();
-
+	$('.newGameStart').show();
   $('button.newGameStart').click(function(){
     $('.square').removeClass('filledBlue');
     $('.square').removeClass('filledRed');
@@ -262,5 +231,6 @@ var reset = function(){
     blues = [];
     reds=[];
 		$('.reset, .redWin, .blueWin').hide();
+
   });
 };
