@@ -61,7 +61,7 @@
   .playerAlert #p2, .playerAlert .redWin {
     color: red;
     display: none; }
-  .playerAlert .reset {
+  .playerAlert .reset, .playerAlert .draw {
     display: none; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -36,6 +36,7 @@ var gameStart = function(){
 				 blueCheck();
 
 				console.log(blues)
+				console.log($('.clickBlock'))
 				player = 2;
 
 			}
@@ -50,6 +51,7 @@ var gameStart = function(){
 				redCheck();
 
 				console.log(reds)
+				console.log($('.clickBlock'))
 				player = 1
 
 			}
@@ -64,7 +66,10 @@ var blueCheck = function(){
     $('.blueWin').show();
     reset();
   }
-
+	if($('.clickBlock').length === 9){
+		$('.draw').show();
+		reset();
+	}
 };
 
 
@@ -76,6 +81,10 @@ var redCheck = function(){
       $('.redWin').show();
       reset();
   }
+	if($('.clickBlock').length === 9){
+		$('.draw').show();
+		reset();
+	}
 };
 
 
@@ -169,6 +178,12 @@ var redCounter = function(){
 
 
 
+//---if no one wins...YOU GET NOTHING.
+if($('.clickBlock').length === 9){
+	$('.draw').show();
+	reset();
+}
+
 
 //---reset the game, new one?
 var reset = function(){
@@ -182,7 +197,7 @@ var reset = function(){
     blues = [];
     reds=[];
 		player = 1;
-		$('.reset, .redWin, .blueWin').hide();
+		$('.reset, .redWin, .blueWin, .draw').hide();
 		$('#p1').show();
   });
 };
