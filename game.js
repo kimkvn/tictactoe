@@ -3,15 +3,10 @@
 // 1-4-7, 2-5-8, 3-6-9
 // 1-5-9, 3-5-7
 
-
-
-
-
 var player ;
 var square = $('.square')
 var blues = []; //stores blue players moves
 var reds = []; //stores red players moves
-
 
 // GAME START
 $('.gameStart').click(function(){
@@ -35,8 +30,6 @@ var gameStart = function(){
 
 				 blueCheck();
 
-				console.log(blues)
-				console.log($('.clickBlock'))
 				player = 2;
 
 			}
@@ -50,8 +43,6 @@ var gameStart = function(){
 
 				redCheck();
 
-				console.log(reds)
-				console.log($('.clickBlock'))
 				player = 1
 
 			}
@@ -123,32 +114,6 @@ var blueCounter = function(){
 
 //---conditions for red winning
 var redCounter = function(){
-  // for(var i = 0; i < reds.length; i++){
-  //    if(
-  //      (reds[i] == "one" || "two" || "three")
-  //      ||
-  //      (reds[i] == "four" || "five" || "six")
-  //      ||
-  //      (reds[i] == "seven" || "eight" || "nine")
-	//
-  //      ||
-	//
-  //      (reds[i] == "one" || "four" || "seven")
-  //      ||
-  //      (reds[i] == "two" || "five" || "eight")
-  //      ||
-  //      (reds[i] == "three" || "six" || "nine")
-	//
-  //      ||
-	//
-  //      (reds[i] == "one" || "five" || "nine")
-  //      ||
-  //      (reds[i] == "three" || "five" || "seven")
-  //    ){
-  //        return true;
-  //    }
-  // }
-
   if(
     ($('.one').hasClass('filledRed') && $('.two').hasClass('filledRed') && $('.three').hasClass('filledRed'))
     ||
