@@ -1,7 +1,7 @@
 # tictactoe
 A little project where I wanted to build an in-browser tic tac toe game.
 
-View the project live at [kimkvn.github.io/tictactoe](kimkvn.github.io/tictactoe)
+View the project live at [kimkvn.github.io/tictactoe](https://kimkvn.github.io/tictactoe/)
 
 The guts of the game is built with jQuery/Javascript.
 
