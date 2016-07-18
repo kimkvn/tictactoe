@@ -1,0 +1,67 @@
+.board {
+  display: block;
+  margin: 0 auto;
+  text-align: center; }
+
+.welcome {
+  text-align: center; }
+
+.squareWrap {
+  display: inline-block; }
+
+.filledBlue {
+  background: blue; }
+
+.filledRed {
+  background: red; }
+
+.clickBlock {
+  width: 3em;
+  height: 3em;
+  border: 3px solid grey;
+  border-radius: 5px;
+  margin-top: -4em;
+  margin-left: 0.5em;
+  position: absolute;
+  z-index: 2; }
+
+.square {
+  width: 3em;
+  height: 3em;
+  display: block;
+  border: 3px solid grey;
+  border-radius: 5px;
+  margin: 1em 0.5em;
+  position: relative;
+  z-index: 1; }
+  .square.one::before {
+    content: '1'; }
+  .square.two::before {
+    content: '2'; }
+  .square.three::before {
+    content: '3'; }
+  .square.four::before {
+    content: '4'; }
+  .square.five::before {
+    content: '5'; }
+  .square.six::before {
+    content: '6'; }
+  .square.seven::before {
+    content: '7'; }
+  .square.eight::before {
+    content: '8'; }
+  .square.nine::before {
+    content: '9'; }
+
+.playerAlert {
+  text-align: center; }
+  .playerAlert #p1, .playerAlert .blueWin {
+    color: blue;
+    display: none; }
+  .playerAlert #p2, .playerAlert .redWin {
+    color: red;
+    display: none; }
+  .playerAlert .reset, .playerAlert .draw {
+    display: none; }
+
+/*# sourceMappingURL=styles.css.map */
