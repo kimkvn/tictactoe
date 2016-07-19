@@ -1,3 +1,6 @@
+body {
+  background: #dcdcdc; }
+
 .board {
   display: block;
   margin: 0 auto;
@@ -8,12 +11,6 @@
 
 .squareWrap {
   display: inline-block; }
-
-.filledBlue {
-  background: blue; }
-
-.filledRed {
-  background: red; }
 
 .clickBlock {
   width: 3em;
@@ -33,25 +30,12 @@
   border-radius: 5px;
   margin: 1em 0.5em;
   position: relative;
-  z-index: 1; }
-  .square.one::before {
-    content: '1'; }
-  .square.two::before {
-    content: '2'; }
-  .square.three::before {
-    content: '3'; }
-  .square.four::before {
-    content: '4'; }
-  .square.five::before {
-    content: '5'; }
-  .square.six::before {
-    content: '6'; }
-  .square.seven::before {
-    content: '7'; }
-  .square.eight::before {
-    content: '8'; }
-  .square.nine::before {
-    content: '9'; }
+  z-index: 1;
+  background: #fff; }
+  .square.filledBlue {
+    background: blue; }
+  .square.filledRed {
+    background: red; }
 
 .playerAlert {
   text-align: center; }

@@ -1,3 +1,6 @@
+body{
+  background: #dcdcdc;
+}
 .board{
   display: block;
   margin: 0 auto;
@@ -8,12 +11,6 @@
 }
 .squareWrap{
   display: inline-block;
-}
-.filledBlue{
-  background: blue;
-}
-.filledRed{
-  background: red;
 }
 .clickBlock{
   //background: purple;
@@ -35,38 +32,17 @@
   margin: 1em 0.5em;
   position: relative;
   z-index: 1;
+  background: #fff;
 
-  &.one::before{
-    content: '1';
+  &.filledBlue{
+    background: blue;
   }
-  &.two::before{
-    content: '2';
+  &.filledRed{
+    background: red;
   }
-  &.three::before{
-    content: '3';
-  }
-  &.four::before{
-    content: '4';
-  }
-  &.five::before{
-    content: '5';
-  }
-  &.six::before{
-    content: '6';
-  }
-  &.seven::before{
-    content: '7';
-  }
-  &.eight::before{
-    content: '8';
-  }
-  &.nine::before{
-    content: '9';
-  }
-
 
 }
- 
+
 
 .playerAlert{
   text-align: center;

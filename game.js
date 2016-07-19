@@ -54,6 +54,7 @@ var blueCheck = function(){
   if(
     blueCounter()
   ){
+		$('<div class="clickBlock"></div>').insertAfter(square);
     $('.blueWin').show();
     reset();
   }
@@ -69,6 +70,7 @@ var redCheck = function(){
   if (
     redCounter()
   ){
+			$('<div class="clickBlock"></div>').insertAfter(square);
       $('.redWin').show();
       reset();
   }
