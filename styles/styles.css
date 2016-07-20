@@ -1,5 +1,6 @@
 body {
-  background: #dcdcdc; }
+  background: #dcdcdc;
+  padding-top: 5ex; }
 
 .board {
   display: block;
@@ -47,5 +48,13 @@ body {
     display: none; }
   .playerAlert .reset, .playerAlert .draw {
     display: none; }
+
+section.createdBy {
+  position: absolute;
+  bottom: 0;
+  left: 50%; }
+  section.createdBy div {
+    position: relative;
+    left: -50%; }
 
 /*# sourceMappingURL=styles.css.map */
